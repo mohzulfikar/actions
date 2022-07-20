@@ -8,15 +8,23 @@ runs:
       run: ls -al
       shell: bash
       
+    - name: "Where am I on bottles"
+      run: ls -al bottles
+      shell: bash
+    
+    - name: "Where am I on bottles"
+      run: whoami
+      shell: bash
+      
     - name: "Failures summary"
       run: |
         touch bottles/steps_output.txt
         cat bottles/steps_output.txt
         rm bottles/steps_output.txt
-      shell: sh
+      shell: bash
 
     - name: "Brew bottle result"
       run: |
         cat bottles/bottle_output.txt
         rm bottles/bottle_output.txt
-      shell: sh
+      shell: bash
