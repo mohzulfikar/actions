@@ -4,6 +4,10 @@ description: 'Failures summary and output brew bottle result'
 runs:
   using: "composite"
   steps:
+    - name: "Where am I"
+      run: ls -al
+      shell: bash
+      
     - name: "Failures summary"
       run: |
         touch bottles/steps_output.txt
