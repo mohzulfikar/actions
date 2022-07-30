@@ -5,11 +5,11 @@ runs:
   using: "composite"
   steps:
     - name: "Where am I"
-      run: ls -al
+      run: ls -al || true
       shell: bash
       
     - name: "Where am I on bottles"
-      run: ls -al bottles
+      run: ls -al bottles || true
       shell: bash
     
     - name: "Where am I on bottles"
