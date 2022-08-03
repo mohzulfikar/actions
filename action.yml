@@ -5,6 +5,10 @@ runs:
   using: "composite"
   steps:
     - name: "Where am I"
+      run: pwd || true
+      shell: bash
+
+    - name: "List of dir"
       run: ls -al || true
       shell: bash
       
@@ -15,6 +19,7 @@ runs:
     - name: "Where am I on bottles"
       run: whoami
       shell: bash
+      
       
     - name: "Failures summary"
       run: |
