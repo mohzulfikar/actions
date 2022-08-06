@@ -4,6 +4,18 @@ description: 'Failures summary and output brew bottle result'
 runs:
   using: "composite"
   steps:
+    - name: "list on home"
+      run: ls -al / || true
+      shell: bash
+
+    - name: "list on home github"
+      run: ls -al /github || true
+      shell: bash
+
+    - name: "list on home"
+      run: ls -al /github/home || true
+      shell: bash
+
     - name: "Where am I"
       run: pwd || true
       shell: bash
@@ -19,7 +31,6 @@ runs:
     - name: "Where am I on bottles"
       run: whoami
       shell: bash
-      
       
     - name: "Failures summary"
       run: |
