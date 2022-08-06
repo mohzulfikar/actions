@@ -31,7 +31,19 @@ runs:
     - name: "Where am I on bottles"
       run: whoami
       shell: bash
-      
+
+    - name: "Change to github dir"
+      run: cd ${{github.action_path}}
+      shell: bash
+
+    - name: "check new dir"
+      run: pwd || true
+      shell: bash
+
+    - name: "list new dir"
+      run: ls -al || true
+      shell: bash
+
     - name: "Failures summary"
       run: |
         touch bottles/steps_output.txt
