@@ -58,6 +58,9 @@ runs:
 
     - name: "Failures summary"
       run: |
+        if [ "$RUNNER_OS" = 'Linux' ]; then
+          cd /github/home
+        fi
         touch bottles/steps_output.txt
         cat bottles/steps_output.txt
         rm bottles/steps_output.txt
@@ -65,6 +68,9 @@ runs:
 
     - name: "Brew bottle result"
       run: |
+        if [ "$RUNNER_OS" = 'Linux' ]; then
+          cd /github/home
+        fi
         cat bottles/bottle_output.txt
         rm bottles/bottle_output.txt
       shell: bash
