@@ -1,63 +1,10 @@
-name: 'Failures summary and output brew bottle result'
-description: 'Failures summary and output brew bottle result'
+name: Failures summary and bottle result
+description: Output the logs of the bottle generation and a summary of all step failures
 
 runs:
-  using: "composite"
+  using: composite
   steps:
-    - name: "list on home"
-      run: ls -al / || true
-      shell: bash
-
-    - name: "list on home github"
-      run: ls -al /github || true
-      shell: bash
-
-    - name: "list on home"
-      run: ls -al /github/home || true
-      shell: bash
-
-    - name: "Where am I"
-      run: pwd || true
-      shell: bash
-
-    - name: "List of dir"
-      run: ls -al || true
-      shell: bash
-      
-    - name: "Where am I on bottles"
-      run: ls -al bottles || true
-      shell: bash
-    
-    - name: "Where am I on bottles"
-      run: whoami
-      shell: bash
-
-    - name: "Change to github dir"
-      if: runner.os == 'Linux'
-      working-directory: "/github/home"
-      run: pwd || true
-      shell: bash
-
-    - name: "Change to github dir"
-      if: runner.os == 'Linux'
-      working-directory: "/github/home"
-      run: ls -al || true
-      shell: bash
-
-    - name: "check new dir"
-      run: pwd || true
-      shell: bash
-
-    - name: "list new dir"
-      run: ls -al || true
-      shell: bash
-
-    - name: "get runner os"
-      run: echo $RUNNER_OS
-      shell: bash
-
-    - name: "Failures summary"
-      run: |
+    - run: |
         if [ "$RUNNER_OS" = 'Linux' ]; then
           cd /github/home
         fi
@@ -66,8 +13,7 @@ runs:
         rm bottles/steps_output.txt
       shell: bash
 
-    - name: "Brew bottle result"
-      run: |
+    - run: |
         if [ "$RUNNER_OS" = 'Linux' ]; then
           cd /github/home
         fi
