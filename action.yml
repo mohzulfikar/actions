@@ -33,7 +33,15 @@ runs:
       shell: bash
 
     - name: "Change to github dir"
-      run: cd ${{github.action_path}}
+      if: runner.os == "Linux"
+      working-directory: "/github/home"
+      run: pwd || true
+      shell: bash
+
+    - name: "Change to github dir"
+      if: runner.os == "Linux"
+      working-directory: "/github/home"
+      run: ls -al || true
       shell: bash
 
     - name: "check new dir"
