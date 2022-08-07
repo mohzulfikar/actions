@@ -33,13 +33,13 @@ runs:
       shell: bash
 
     - name: "Change to github dir"
-      if: runner.os == "Linux"
+      if: runner.os == 'Linux'
       working-directory: "/github/home"
       run: pwd || true
       shell: bash
 
     - name: "Change to github dir"
-      if: runner.os == "Linux"
+      if: runner.os == 'Linux'
       working-directory: "/github/home"
       run: ls -al || true
       shell: bash
