@@ -44,6 +44,10 @@ runs:
       run: ls -al || true
       shell: bash
 
+    - name: "get runner os"
+      run: echo $RUNNER_OS
+      shell: bash
+
     - name: "Failures summary"
       run: |
         touch bottles/steps_output.txt
